@@ -1,5 +1,5 @@
 {
-  "name": "table",
+  "name": "@vtools/table",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.23.0",

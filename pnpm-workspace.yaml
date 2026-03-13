@@ -4,3 +4,7 @@ trustPolicy: no-downgrade
 
 packages:
   - packages/*
+  - playground
+
+onlyBuiltDependencies:
+  - esbuild

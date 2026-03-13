@@ -15,6 +15,7 @@
     "lint:fix": "eslint --fix",
     "preinstall": "npx only-allow pnpm",
     "dev": "turbo run dev",
+    "dev:playground": "turbo run dev --filter=playground",
     "build": "turbo run build"
   },
   "devDependencies": {

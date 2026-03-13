@@ -1,0 +1,19 @@
+{
+  "name": "playground",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@vtools/form": "workspace:*",
+    "@vtools/table": "workspace:*",
+    "element-plus": "^2.9.8",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "6.2.7"
+  }
+}
