@@ -1,33 +1,33 @@
-<script setup>
-import { h, ref, useTemplateRef } from 'vue';
+<script setup lang="ts">
+import type { FormInstance, RowProps } from 'element-plus'
+import type { Component, VNode } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 
-const props = defineProps({
-  formItems: {
-    type: Array,
-    required: true,
-  },
-  form: {
-    type: Object,
-  },
-  /**
-   * el-row 组件的属性
-   * @param {RowProps} rowProps
-   */
-  rowProps: {
-    type: Object,
-    default: () => ({}),
-  },
-});
+export interface FormItemConfig {
+  model: string
+  label?: string
+  type?: string | Component
+  col?: Record<string, unknown>
+  props?: Record<string, unknown>
+  slots?: Record<string, () => VNode>
+}
 
-const form = ref({});
+const props = defineProps<{
+  formItems: FormItemConfig[]
+  form?: Record<string, unknown>
+  /** el-row 组件的属性 */
+  rowProps?: RowProps
+}>()
 
-const formRef = useTemplateRef('formInstance');
+const form = ref<Record<string, unknown>>({})
+
+const formRef = useTemplateRef<FormInstance>('formInstance')
 
 defineExpose({
-  validate: (...args) => formRef.value?.validate?.(...args),
-  formData: () => Readonly(props.form ?? form.value),
+  validate: (...args: unknown[]) => formRef.value?.validate?.(...(args as [])),
+  formData: () => props.form ?? form.value,
   formInstance: () => formRef.value,
-});
+})
 </script>
 
 <template>
@@ -45,9 +45,9 @@ defineExpose({
                 <template
                   v-for="(slotContent, slotName) in item.slots"
                   :key="slotName"
-                  v-slot:[slotName]
+                  #[slotName]
                 >
-                  <component :is="slotContent"></component>
+                  <component :is="slotContent" />
                 </template>
               </component>
             </el-form-item>
@@ -58,4 +58,4 @@ defineExpose({
   </el-form>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
