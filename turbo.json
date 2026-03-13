@@ -2,6 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
+      "inputs": ["src/**", "tsdown.config.ts", "../../tsdown.config.ts"],
       "outputs": ["dist/**"],
       "cache": true
     },
