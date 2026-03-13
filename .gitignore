@@ -24,4 +24,5 @@ docs/.vitepress/cache
 .output
 typings/auto-imports.d.ts
 
+.turbo
 .claude

@@ -19,5 +19,8 @@
   "files": [
     "dist"
   ],
-  "scripts": {}
+  "scripts": {
+    "build": "tsdown --platform=neutral --format=esm --dts.build --minify --clean --entry=src/index.ts --out-dir=dist",
+    "dev": "tsdown --platform=neutral --format=esm --dts.build --clean --sourcemap --entry=src/index.ts --out-dir=dist --watch=src"
+  }
 }
