@@ -1,15 +1,16 @@
 <script setup>
 import BasicDemo from '../examples/table/basic.vue'
 import CustomColumnDemo from '../examples/table/custom-column.vue'
+import TemplateSlotDemo from '../examples/table/template-slot.vue'
 </script>
 
 # VelTable 表格
 
-基于 Element Plus `el-table` 封装的表格组件，支持配置化列定义和内置分页。
+基于 Element Plus `el-table` 封装的配置驱动表格组件，支持配置化列定义、自定义列渲染和内置分页。
 
 ## 基础用法
 
-通过 `columns` 配置列，`data` 传入数据，默认带分页。
+通过 `columns` 定义列配置，`data` 传入表格数据。组件默认启用分页，通过 `sizeChange` 和 `currentChange` 事件获取分页参数。
 
 <ClientOnly><BasicDemo /></ClientOnly>
 
@@ -17,14 +18,24 @@ import CustomColumnDemo from '../examples/table/custom-column.vue'
 <<< ../examples/table/basic.vue
 :::
 
-## 自定义列插槽
+## 配置插槽
 
-每列可通过以 `prop` 命名的插槽自定义渲染内容，插槽参数为 `scope`（同 Element Plus 的作用域插槽）。
+通过 `ColumnConfig.slots` 传入渲染函数，在列内部自定义单元格内容。插槽名对应 `el-table-column` 的插槽（如 `default`、`header`），渲染函数接收 `el-table-column` 的作用域参数。
 
 <ClientOnly><CustomColumnDemo /></ClientOnly>
 
 ::: details 查看代码
 <<< ../examples/table/custom-column.vue
+:::
+
+## 模板插槽
+
+通过以 `column.prop` 命名的具名插槽自定义单元格内容，插槽参数与 `el-table-column` 的作用域插槽一致（`row`、`column`、`$index`）。
+
+<ClientOnly><TemplateSlotDemo /></ClientOnly>
+
+::: details 查看代码
+<<< ../examples/table/template-slot.vue
 :::
 
 ## 隐藏分页
@@ -34,6 +45,22 @@ import CustomColumnDemo from '../examples/table/custom-column.vue'
 ```vue
 <template>
   <VelTable :columns="columns" :data="data" :has-pagination="false" />
+</template>
+```
+
+## 透传属性
+
+组件通过 `v-bind="$attrs"` 将未声明的属性透传给 `el-table`，可直接使用 `el-table` 的所有属性。
+
+```vue
+<template>
+  <VelTable
+    :columns="columns"
+    :data="data"
+    border
+    :height="400"
+    :default-sort="{ prop: 'date', order: 'descending' }"
+  />
 </template>
 ```
 
@@ -63,14 +90,16 @@ const columns: ColumnConfig[] = [
 | `data`          | 表格数据     | `Record<string, unknown>[]` | `[]`   |
 | `hasPagination` | 是否显示分页 | `boolean`                   | `true` |
 
+组件支持透传 `el-table` 的所有属性（如 `border`、`height`、`stripe` 等）。
+
 ### ColumnConfig
 
 | 属性    | 说明                              | 类型                                                        | 默认值 |
 | ------- | --------------------------------- | ----------------------------------------------------------- | ------ |
-| `prop`  | 列字段名，同时作为插槽名          | `string`                                                    | —      |
+| `prop`  | 列字段名，同时作为模板插槽名      | `string`                                                    | —      |
 | `label` | 列标题                            | `string`                                                    | —      |
 | `width` | 列宽度                            | `string \| number`                                          | —      |
-| `slots` | 列的插槽配置                      | `Record<string, (scope: Record<string, unknown>) => VNode>` | —      |
+| `slots` | 列的渲染函数插槽                  | `Record<string, (scope: Record<string, unknown>) => VNode>` | —      |
 | `[key]` | 其他 `el-table-column` 支持的属性 | `unknown`                                                   | —      |
 
 ### PageQuery
@@ -91,9 +120,9 @@ const columns: ColumnConfig[] = [
 
 ### Slots
 
-| 插槽名   | 说明                                                    | 参数                             |
-| -------- | ------------------------------------------------------- | -------------------------------- |
-| `[prop]` | 以 `ColumnConfig.prop` 命名的具名插槽，用于自定义列内容 | `scope: { row, column, $index }` |
+| 插槽名   | 说明                                                          | 用法                             |
+| -------- | ------------------------------------------------------------- | -------------------------------- |
+| `[prop]` | 以 `ColumnConfig.prop` 命名的具名插槽，自定义该列的单元格内容 | `scope: { row, column, $index }` |
 
 ### 分页配置
 

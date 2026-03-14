@@ -42,6 +42,11 @@ const pageQuery = reactive<PageQuery>({
   total: 0,
 })
 
+function getColumnProps(column: ColumnConfig) {
+  const { slots: _, ...rest } = column
+  return rest
+}
+
 function handleSizeChange(size: number) {
   pageQuery.size = size
   emits('sizeChange', pageQuery)
@@ -56,10 +61,10 @@ function handleCurrentChange(current: number) {
 <template>
   <div>
     <div>
-      <el-table :data="props.data" stripe style="width: 100%" v-bind="$attrs">
-        <template v-for="column in props.columns" :key="column.prop">
-          <slot :name="column.prop">
-            <el-table-column v-bind="column">
+      <el-table :data="props.data" style="width: 100%" v-bind="$attrs">
+        <template v-for="(column, index) in props.columns" :key="column.prop">
+          <slot :name="column.prop" :row="props.data[index]">
+            <el-table-column v-bind="getColumnProps(column)">
               <template v-for="(_slot, slot) in column?.slots" :key="slot" #[slot]="slotProps">
                 <component :is="_slot(slotProps)" />
               </template>

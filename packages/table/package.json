@@ -17,8 +17,7 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./style.css": "./dist/style.css"
+    }
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
