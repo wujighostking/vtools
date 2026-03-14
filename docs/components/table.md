@@ -10,7 +10,7 @@ import TemplateSlotDemo from '../examples/table/template-slot.vue'
 
 ## 基础用法
 
-通过 `columns` 定义列配置，`data` 传入表格数据。组件默认启用分页，通过 `sizeChange` 和 `currentChange` 事件获取分页参数。
+通过 `columns` 定义列配置，`data` 传入表格数据。组件默认启用分页，通过 `size-change` 和 `current-change` 事件获取分页参数。
 
 <ClientOnly><BasicDemo /></ClientOnly>
 
@@ -30,7 +30,7 @@ import TemplateSlotDemo from '../examples/table/template-slot.vue'
 
 ## 模板插槽
 
-通过以 `column.prop` 命名的具名插槽自定义单元格内容，插槽参数与 `el-table-column` 的作用域插槽一致（`row`、`column`、`$index`）。
+通过以 `column.prop` 命名的具名插槽自定义单元格内容。模板插槽仅支持单元格内容（对应 `el-table-column` 的 `default` 插槽），不支持 `header` 等其他插槽；如需自定义表头，请使用配置插槽方式。插槽参数同 `el-table-column` 的默认作用域插槽（`{ row, column, $index }`）。
 
 <ClientOnly><TemplateSlotDemo /></ClientOnly>
 
@@ -104,7 +104,9 @@ const columns: ColumnConfig[] = [
 
 ### PageQuery
 
-| 属性      | 说明     | 类型     | 默认值 |
+事件回调参数。`current` 和 `size` 反映用户操作后的实际值，`pages` 和 `total` 为组件内部初始值（当前版本无法从外部设置）。
+
+| 属性      | 说明     | 类型     | 初始值 |
 | --------- | -------- | -------- | ------ |
 | `current` | 当前页码 | `number` | `1`    |
 | `pages`   | 总页数   | `number` | `1`    |
@@ -113,16 +115,18 @@ const columns: ColumnConfig[] = [
 
 ### Events
 
-| 事件名          | 说明               | 参数                 |
-| --------------- | ------------------ | -------------------- |
-| `sizeChange`    | 每页条数变化时触发 | `(query: PageQuery)` |
-| `currentChange` | 当前页变化时触发   | `(query: PageQuery)` |
+| 事件名           | 说明               | 参数                 |
+| ---------------- | ------------------ | -------------------- |
+| `size-change`    | 每页条数变化时触发 | `(query: PageQuery)` |
+| `current-change` | 当前页变化时触发   | `(query: PageQuery)` |
 
 ### Slots
 
-| 插槽名   | 说明                                                          | 用法                             |
-| -------- | ------------------------------------------------------------- | -------------------------------- |
-| `[prop]` | 以 `ColumnConfig.prop` 命名的具名插槽，自定义该列的单元格内容 | `scope: { row, column, $index }` |
+| 插槽名   | 说明                                                          | 作用域参数                                                 |
+| -------- | ------------------------------------------------------------- | ---------------------------------------------------------- |
+| `[prop]` | 以 `ColumnConfig.prop` 命名的具名插槽，自定义该列的单元格内容 | `{ row, column, $index }`（同 `el-table-column` 默认插槽） |
+
+> 模板插槽仅支持单元格内容（`default`）。如需自定义表头等其他插槽，请使用 `ColumnConfig.slots` 配置方式。
 
 ### 分页配置
 
@@ -130,3 +134,6 @@ const columns: ColumnConfig[] = [
 
 - 可选每页条数：`[10, 20, 50, 100]`
 - 布局：`total, sizes, prev, pager, next, jumper`
+- 尺寸：`default`
+
+> 当前版本分页的 `total` 为组件内部状态，无法从外部传入，因此分页器始终显示总数为 0。如需完整分页功能，建议隐藏内置分页（`:has-pagination="false"`）并自行实现。
