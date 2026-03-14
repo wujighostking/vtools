@@ -18,10 +18,15 @@
     "dev:playground": "turbo run dev --filter=playground",
     "dev:docs": "turbo run dev --filter=docs",
     "build:docs": "turbo run build --filter=docs",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.7.2",
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
     "@commitlint/cli": "^20.4.4",
     "@commitlint/config-conventional": "^20.4.4",
     "@tsdown/css": "^0.21.2",
