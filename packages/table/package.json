@@ -2,16 +2,20 @@
   "name": "@vtools/table",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.23.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
+  "description": "配置驱动的 Vue 3 表格组件，内置分页",
+  "author": "gk",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "directory": "packages/table"
+  },
+  "keywords": ["vue", "vue3", "table", "element-plus", "component"],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",

@@ -2,15 +2,18 @@
   "name": "vtools",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.23.0",
-  "description": "Vue 组件工具库",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
+  "description": "配置驱动的 Vue 组件工具库，基于 Vue 3 + Element Plus",
+  "author": "gk",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "directory": "packages/main"
+  },
+  "keywords": ["vue", "vue3", "form", "table", "element-plus", "component"],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "main": "dist/index.js",

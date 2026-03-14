@@ -2,15 +2,18 @@
   "name": "@vtools/form",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.23.0",
-  "description": "",
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
+  "description": "配置驱动的 Vue 3 动态表单构建器",
+  "author": "gk",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "directory": "packages/form"
+  },
+  "keywords": ["vue", "vue3", "form", "element-plus", "component"],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "main": "dist/index.js",
