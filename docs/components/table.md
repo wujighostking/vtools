@@ -43,7 +43,7 @@ import CustomColumnDemo from '../examples/table/custom-column.vue'
 
 ```vue
 <script setup lang="ts">
-import type { ColumnConfig } from '@vtools/table'
+import type { ColumnConfig } from '@veltools/table'
 
 const columns: ColumnConfig[] = [
   { prop: 'name', label: '姓名', fixed: 'left' },

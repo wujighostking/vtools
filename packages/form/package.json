@@ -1,5 +1,5 @@
 {
-  "name": "@vtools/form",
+  "name": "@veltools/form",
   "type": "module",
   "version": "1.0.0",
   "description": "配置驱动的 Vue 3 动态表单构建器",

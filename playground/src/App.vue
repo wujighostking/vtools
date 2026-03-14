@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import type { ColumnConfig, PageQuery } from '@vtools/table'
-import { FormBuilder } from '@vtools/form'
-import { VTable } from '@vtools/table'
+import type { FormItemConfig } from '@veltools/form'
+import type { ColumnConfig, PageQuery } from '@veltools/table'
+import { FormBuilder } from '@veltools/form'
+import { VTable } from '@veltools/table'
 import { ElInput, ElOption, ElSelect, ElTag } from 'element-plus'
 import { h, reactive, ref } from 'vue'
 

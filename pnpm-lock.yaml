@@ -59,10 +59,10 @@ importers:
 
   docs:
     dependencies:
-      '@vtools/form':
+      '@veltools/form':
         specifier: workspace:*
         version: link:../packages/form
-      '@vtools/table':
+      '@veltools/table':
         specifier: workspace:*
         version: link:../packages/table
     devDependencies:
@@ -87,10 +87,10 @@ importers:
 
   packages/main:
     dependencies:
-      '@vtools/form':
+      '@veltools/form':
         specifier: workspace:*
         version: link:../form
-      '@vtools/table':
+      '@veltools/table':
         specifier: workspace:*
         version: link:../table
     devDependencies:
@@ -112,10 +112,10 @@ importers:
 
   playground:
     dependencies:
-      '@vtools/form':
+      '@veltools/form':
         specifier: workspace:*
         version: link:../packages/form
-      '@vtools/table':
+      '@veltools/table':
         specifier: workspace:*
         version: link:../packages/table
       element-plus:

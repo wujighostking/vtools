@@ -1,5 +1,5 @@
 {
-  "name": "vtools",
+  "name": "veltools",
   "type": "module",
   "version": "1.0.0",
   "description": "配置驱动的 Vue 组件工具库，基于 Vue 3 + Element Plus",
@@ -34,8 +34,8 @@
     "vue": ">=3.0.0"
   },
   "dependencies": {
-    "@vtools/form": "workspace:*",
-    "@vtools/table": "workspace:*"
+    "@veltools/form": "workspace:*",
+    "@veltools/table": "workspace:*"
   },
   "devDependencies": {
     "element-plus": "^2.13.5",

@@ -9,8 +9,8 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "@vtools/form": "workspace:*",
-    "@vtools/table": "workspace:*"
+    "@veltools/form": "workspace:*",
+    "@veltools/table": "workspace:*"
   },
   "devDependencies": {
     "element-plus": "^2.13.5",

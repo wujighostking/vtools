@@ -44,7 +44,7 @@ import SlotsTemplateDemo from '../examples/form/slots-template.vue'
 
 ```vue
 <script setup lang="ts">
-import { FormBuilder } from '@vtools/form'
+import { FormBuilder } from '@veltools/form'
 import { ref } from 'vue'
 
 const formRef = ref()

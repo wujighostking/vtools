@@ -1,5 +1,5 @@
-export { FormBuilder } from '@vtools/form'
-export type { FormItemConfig } from '@vtools/form'
+export { FormBuilder } from '@veltools/form'
+export type { FormItemConfig } from '@veltools/form'
 
-export { VTable } from '@vtools/table'
-export type { ColumnConfig, PageQuery } from '@vtools/table'
+export { VTable } from '@veltools/table'
+export type { ColumnConfig, PageQuery } from '@veltools/table'

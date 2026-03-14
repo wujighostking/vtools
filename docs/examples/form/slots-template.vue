@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import { FormBuilder } from '@vtools/form'
+import type { FormItemConfig } from '@veltools/form'
+import { FormBuilder } from '@veltools/form'
 import { ElInput } from 'element-plus'
 import { reactive } from 'vue'
 

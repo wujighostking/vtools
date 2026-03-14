@@ -4,11 +4,11 @@
 
 ```bash
 # 安装完整包（推荐）
-pnpm add vtools
+pnpm add veltools
 
 # 或按需安装单个包
-pnpm add @vtools/form
-pnpm add @vtools/table
+pnpm add @veltools/form
+pnpm add @veltools/table
 ```
 
 ### 前置依赖
@@ -23,20 +23,20 @@ pnpm add vue element-plus
 
 ```ts
 // 或从子包按需引入
-import { FormBuilder } from '@vtools/form'
+import { FormBuilder } from '@veltools/form'
 
-import { VTable } from '@vtools/table'
+import { VTable } from '@veltools/table'
 // 从统一入口引入（推荐）
-import { FormBuilder, VTable } from 'vtools'
+import { FormBuilder, VTable } from 'veltools'
 ```
 
 ## 引入类型
 
 ```ts
 // 或从子包按需引入
-import type { FormItemConfig } from '@vtools/form'
+import type { FormItemConfig } from '@veltools/form'
 
-import type { ColumnConfig, PageQuery } from '@vtools/table'
+import type { ColumnConfig, PageQuery } from '@veltools/table'
 // 从统一入口引入（推荐）
-import type { ColumnConfig, FormItemConfig, PageQuery } from 'vtools'
+import type { ColumnConfig, FormItemConfig, PageQuery } from 'veltools'
 ```

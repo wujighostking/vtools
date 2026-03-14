@@ -7,8 +7,8 @@
     "dev": "vite"
   },
   "dependencies": {
-    "@vtools/form": "workspace:*",
-    "@vtools/table": "workspace:*",
+    "@veltools/form": "workspace:*",
+    "@veltools/table": "workspace:*",
     "element-plus": "^2.13.5",
     "vue": "^3.5.30"
   },

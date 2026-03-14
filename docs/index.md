@@ -23,7 +23,7 @@ features:
     details: 支持配置插槽和模板插槽两种方式，满足从简单到复杂的各种自定义需求
   - icon: "\uD83D\uDCE6"
     title: 按需引入
-    details: 支持从 vtools 统一导入，也可按需引入 @vtools/form 或 @vtools/table
+    details: 支持从 veltools 统一导入，也可按需引入 @veltools/form 或 @veltools/table
   - icon: "\uD83D\uDD27"
     title: 完整类型支持
     details: 使用 TypeScript 编写，导出完整的类型定义，提供良好的 IDE 提示体验

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { ColumnConfig } from '@vtools/table'
-import { VTable } from '@vtools/table'
+import type { ColumnConfig } from '@veltools/table'
+import { VTable } from '@veltools/table'
 import { ref } from 'vue'
 
 const columns: ColumnConfig[] = [

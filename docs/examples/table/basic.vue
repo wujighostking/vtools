@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { ColumnConfig, PageQuery } from '@vtools/table'
-import { VTable } from '@vtools/table'
+import type { ColumnConfig, PageQuery } from '@veltools/table'
+import { VTable } from '@veltools/table'
 import { ref } from 'vue'
 
 const columns: ColumnConfig[] = [

@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@vtools/form': fileURLToPath(new URL('../packages/form/src/index.ts', import.meta.url)),
-      '@vtools/table': fileURLToPath(new URL('../packages/table/src/index.ts', import.meta.url)),
-      'vtools': fileURLToPath(new URL('../packages/main/src/index.ts', import.meta.url)),
+      '@veltools/form': fileURLToPath(new URL('../packages/form/src/index.ts', import.meta.url)),
+      '@veltools/table': fileURLToPath(new URL('../packages/table/src/index.ts', import.meta.url)),
+      'veltools': fileURLToPath(new URL('../packages/main/src/index.ts', import.meta.url)),
     },
   },
 })
