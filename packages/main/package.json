@@ -5,10 +5,13 @@
   "description": "配置驱动的 Vue 组件工具库，基于 Vue 3 + Element Plus",
   "author": "gk",
   "license": "MIT",
+  "homepage": "https://github.com/wujighostking/vtools#readme",
   "repository": {
     "type": "git",
+    "url": "https://github.com/wujighostking/vtools",
     "directory": "packages/main"
   },
+  "bugs": "https://github.com/wujighostking/vtools/issues",
   "keywords": ["vue", "vue3", "form", "table", "element-plus", "component"],
   "exports": {
     ".": {

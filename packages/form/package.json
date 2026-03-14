@@ -5,10 +5,13 @@
   "description": "配置驱动的 Vue 3 动态表单构建器",
   "author": "gk",
   "license": "MIT",
+  "homepage": "https://github.com/wujighostking/vtools#readme",
   "repository": {
     "type": "git",
+    "url": "https://github.com/wujighostking/vtools",
     "directory": "packages/form"
   },
+  "bugs": "https://github.com/wujighostking/vtools/issues",
   "keywords": ["vue", "vue3", "form", "element-plus", "component"],
   "exports": {
     ".": {
