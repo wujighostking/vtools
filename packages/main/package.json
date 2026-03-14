@@ -1,7 +1,7 @@
 {
   "name": "veltools",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "配置驱动的 Vue 组件工具库，基于 Vue 3 + Element Plus",
   "author": "gk",
   "license": "MIT",
@@ -12,7 +12,14 @@
     "directory": "packages/main"
   },
   "bugs": "https://github.com/wujighostking/vtools/issues",
-  "keywords": ["vue", "vue3", "form", "table", "element-plus", "component"],
+  "keywords": [
+    "vue",
+    "vue3",
+    "form",
+    "table",
+    "element-plus",
+    "component"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

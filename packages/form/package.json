@@ -1,7 +1,7 @@
 {
   "name": "@veltools/form",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "配置驱动的 Vue 3 动态表单构建器",
   "author": "gk",
   "license": "MIT",
@@ -12,7 +12,13 @@
     "directory": "packages/form"
   },
   "bugs": "https://github.com/wujighostking/vtools/issues",
-  "keywords": ["vue", "vue3", "form", "element-plus", "component"],
+  "keywords": [
+    "vue",
+    "vue3",
+    "form",
+    "element-plus",
+    "component"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
