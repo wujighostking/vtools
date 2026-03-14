@@ -47,6 +47,13 @@ function getColumnProps(column: ColumnConfig) {
   return rest
 }
 
+function getNonDefaultSlots(slots?: ColumnConfig['slots']) {
+  if (!slots)
+    return {}
+  const { default: _, ...rest } = slots
+  return rest
+}
+
 function handleSizeChange(size: number) {
   pageQuery.size = size
   emits('sizeChange', pageQuery)
@@ -62,15 +69,24 @@ function handleCurrentChange(current: number) {
   <div>
     <div>
       <el-table :data="props.data" style="width: 100%" v-bind="$attrs">
-        <template v-for="(column, index) in props.columns" :key="column.prop">
-          <slot :name="column.prop" :row="props.data[index]">
-            <el-table-column v-bind="getColumnProps(column)">
-              <template v-for="(_slot, slot) in column?.slots" :key="slot" #[slot]="slotProps">
-                <component :is="_slot(slotProps)" />
-              </template>
-            </el-table-column>
-          </slot>
-        </template>
+        <el-table-column
+          v-for="column in props.columns"
+          :key="column.prop"
+          v-bind="getColumnProps(column)"
+        >
+          <template v-if="$slots[column.prop!] || column.slots?.default" #default="scope">
+            <slot :name="column.prop" v-bind="scope">
+              <component :is="column.slots!.default!(scope)" />
+            </slot>
+          </template>
+          <template
+            v-for="(slotFn, slotName) in getNonDefaultSlots(column.slots)"
+            :key="slotName"
+            #[slotName]="scope"
+          >
+            <component :is="slotFn(scope)" />
+          </template>
+        </el-table-column>
       </el-table>
     </div>
 
