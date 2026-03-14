@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'VTools',
+  title: 'VelTools',
   description: 'Vue 组件工具库文档',
   vite: {
     resolve: {

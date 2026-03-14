@@ -13,7 +13,7 @@ pnpm add @veltools/table
 
 ### 前置依赖
 
-VTools 基于 [Vue 3](https://vuejs.org/) 和 [Element Plus](https://element-plus.org/) 构建，请确保项目中已安装：
+VelTools 基于 [Vue 3](https://vuejs.org/) 和 [Element Plus](https://element-plus.org/) 构建，请确保项目中已安装：
 
 ```bash
 pnpm add vue element-plus

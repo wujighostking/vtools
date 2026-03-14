@@ -1,6 +1,6 @@
 # 组件总览
 
-VTools 提供以下组件，所有组件和类型均可从 `veltools` 统一导入：
+VelTools 提供以下组件，所有组件和类型均可从 `veltools` 统一导入：
 
 ```ts
 import type { ColumnConfig, FormItemConfig, PageQuery } from 'veltools'

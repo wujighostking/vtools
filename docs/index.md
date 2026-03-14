@@ -1,12 +1,12 @@
 ---
 layout: home
 hero:
-  name: VTools
+  name: VelTools
   text: 配置驱动的 Vue 组件工具库
   tagline: 基于 Vue 3 + Element Plus，通过 JSON 配置快速生成表单与表格，告别重复模板代码
   image:
     src: /logo.svg
-    alt: VTools
+    alt: VelTools
   actions:
     - theme: brand
       text: 快速开始
