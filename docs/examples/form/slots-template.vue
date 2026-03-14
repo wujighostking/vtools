@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormItemConfig } from '@veltools/form'
-import { FormBuilder } from '@veltools/form'
+import { VelForm } from '@veltools/form'
 import { ElInput } from 'element-plus'
 import { reactive } from 'vue'
 
@@ -26,7 +26,7 @@ const formItems: FormItemConfig[] = [
 </script>
 
 <template>
-  <FormBuilder
+  <VelForm
     :form-items="formItems"
     :form="formData"
     :row-props="{ gutter: 16 }"
@@ -42,5 +42,5 @@ const formItems: FormItemConfig[] = [
         />
       </el-form-item>
     </template>
-  </FormBuilder>
+  </VelForm>
 </template>

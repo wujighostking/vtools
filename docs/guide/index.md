@@ -23,11 +23,11 @@ pnpm add vue element-plus
 
 ```ts
 // 或从子包按需引入
-import { FormBuilder } from '@veltools/form'
+import { VelForm } from '@veltools/form'
 
-import { VTable } from '@veltools/table'
+import { VelTable } from '@veltools/table'
 // 从统一入口引入（推荐）
-import { FormBuilder, VTable } from 'veltools'
+import { VelForm, VelTable } from 'veltools'
 ```
 
 ## 引入类型

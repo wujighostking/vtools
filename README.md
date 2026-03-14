@@ -25,16 +25,16 @@ pnpm add vue element-plus
 
 ```ts
 import type { ColumnConfig, FormItemConfig, PageQuery } from 'veltools'
-import { FormBuilder, VTable } from 'veltools'
+import { VelForm, VelTable } from 'veltools'
 ```
 
-### FormBuilder
+### VelForm
 
 ```vue
 <script setup lang="ts">
 import type { FormItemConfig } from 'veltools'
 import { ElInput } from 'element-plus'
-import { FormBuilder } from 'veltools'
+import { VelForm } from 'veltools'
 import { reactive, ref } from 'vue'
 
 const form = reactive({ name: '', email: '' })
@@ -46,16 +46,16 @@ const formRef = ref()
 </script>
 
 <template>
-  <FormBuilder ref="formRef" :form-items="formItems" :form="form" />
+  <VelForm ref="formRef" :form-items="formItems" :form="form" />
 </template>
 ```
 
-### VTable
+### VelTable
 
 ```vue
 <script setup lang="ts">
 import type { ColumnConfig } from 'veltools'
-import { VTable } from 'veltools'
+import { VelTable } from 'veltools'
 
 const columns: ColumnConfig[] = [
   { prop: 'name', label: '姓名' },
@@ -68,17 +68,17 @@ const data = [
 </script>
 
 <template>
-  <VTable :columns="columns" :data="data" />
+  <VelTable :columns="columns" :data="data" />
 </template>
 ```
 
 ## 包结构
 
-| 包名              | 说明                   |
-| ----------------- | ---------------------- |
-| `veltools`        | 统一导出入口           |
-| `@veltools/form`  | FormBuilder 表单构建器 |
-| `@veltools/table` | VTable 表格组件        |
+| 包名              | 说明               |
+| ----------------- | ------------------ |
+| `veltools`        | 统一导出入口       |
+| `@veltools/form`  | VelForm 表单构建器 |
+| `@veltools/table` | VelTable 表格组件  |
 
 ## 开发
 

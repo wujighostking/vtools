@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { FormItemConfig } from '@veltools/form'
 import type { ColumnConfig, PageQuery } from '@veltools/table'
-import { FormBuilder } from '@veltools/form'
-import { VTable } from '@veltools/table'
+import { VelForm } from '@veltools/form'
+import { VelTable } from '@veltools/table'
 import { ElInput, ElOption, ElSelect, ElTag } from 'element-plus'
 import { h, reactive, ref } from 'vue'
 
@@ -64,7 +64,7 @@ const formItems: FormItemConfig[] = [
   },
 ]
 
-const formRef = ref<InstanceType<typeof FormBuilder>>()
+const formRef = ref<InstanceType<typeof VelForm>>()
 
 function handleSubmit() {
   // eslint-disable-next-line no-console
@@ -99,8 +99,8 @@ function handleCurrentChange(query: PageQuery) {
   <div style="padding: 24px; max-width: 960px; margin: 0 auto;">
     <h1>vtools playground</h1>
 
-    <ElDivider>FormBuilder</ElDivider>
-    <FormBuilder
+    <ElDivider>VelForm</ElDivider>
+    <VelForm
       ref="formRef"
       :form-items="formItems"
       :form="formData"
@@ -118,13 +118,13 @@ function handleCurrentChange(query: PageQuery) {
           />
         </ElFormItem>
       </template>
-    </FormBuilder>
+    </VelForm>
     <ElButton type="primary" style="margin-top: 12px;" @click="handleSubmit">
       提交
     </ElButton>
 
-    <ElDivider>VTable</ElDivider>
-    <VTable
+    <ElDivider>VelTable</ElDivider>
+    <VelTable
       :columns="columns"
       :data="tableData"
       @size-change="handleSizeChange"

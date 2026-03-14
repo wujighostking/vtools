@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ColumnConfig } from '@veltools/table'
-import { VTable } from '@veltools/table'
+import { VelTable } from '@veltools/table'
 import { ref } from 'vue'
 
 const columns: ColumnConfig[] = [
@@ -25,7 +25,7 @@ function handleDelete(row: Record<string, unknown>) {
 </script>
 
 <template>
-  <VTable :columns="columns" :data="tableData" :has-pagination="false">
+  <VelTable :columns="columns" :data="tableData" :has-pagination="false">
     <template #status="{ row }">
       <el-tag :type="row.status === 'active' ? 'success' : 'danger'">
         {{ row.status === 'active' ? '启用' : '禁用' }}
@@ -39,5 +39,5 @@ function handleDelete(row: Record<string, unknown>) {
         删除
       </el-button>
     </template>
-  </VTable>
+  </VelTable>
 </template>

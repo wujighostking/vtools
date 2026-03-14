@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormItemConfig } from '@veltools/form'
-import { FormBuilder } from '@veltools/form'
+import { VelForm } from '@veltools/form'
 import { ElInput } from 'element-plus'
 import { reactive, ref } from 'vue'
 
@@ -26,7 +26,7 @@ const formItems: FormItemConfig[] = [
   },
 ]
 
-const formRef = ref<InstanceType<typeof FormBuilder>>()
+const formRef = ref<InstanceType<typeof VelForm>>()
 
 function handleSubmit() {
   console.log('表单数据:', formRef.value?.formData()) // eslint-disable-line no-console
@@ -34,7 +34,7 @@ function handleSubmit() {
 </script>
 
 <template>
-  <FormBuilder
+  <VelForm
     ref="formRef"
     :form-items="formItems"
     :form="formData"

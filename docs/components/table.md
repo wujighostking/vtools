@@ -3,7 +3,7 @@ import BasicDemo from '../examples/table/basic.vue'
 import CustomColumnDemo from '../examples/table/custom-column.vue'
 </script>
 
-# VTable 表格
+# VelTable 表格
 
 基于 Element Plus `el-table` 封装的表格组件，支持配置化列定义和内置分页。
 
@@ -33,7 +33,7 @@ import CustomColumnDemo from '../examples/table/custom-column.vue'
 
 ```vue
 <template>
-  <VTable :columns="columns" :data="data" :has-pagination="false" />
+  <VelTable :columns="columns" :data="data" :has-pagination="false" />
 </template>
 ```
 

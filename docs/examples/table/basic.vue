@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ColumnConfig, PageQuery } from '@veltools/table'
-import { VTable } from '@veltools/table'
+import { VelTable } from '@veltools/table'
 import { ref } from 'vue'
 
 const columns: ColumnConfig[] = [
@@ -25,7 +25,7 @@ function handleCurrentChange(query: PageQuery) {
 </script>
 
 <template>
-  <VTable
+  <VelTable
     :columns="columns"
     :data="tableData"
     @size-change="handleSizeChange"

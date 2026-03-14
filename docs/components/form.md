@@ -4,7 +4,7 @@ import SlotsConfigDemo from '../examples/form/slots-config.vue'
 import SlotsTemplateDemo from '../examples/form/slots-template.vue'
 </script>
 
-# FormBuilder 表单构建器
+# VelForm 表单构建器
 
 基于 Element Plus `el-form` 封装的动态表单组件，通过配置化方式快速生成表单。
 
@@ -44,7 +44,7 @@ import SlotsTemplateDemo from '../examples/form/slots-template.vue'
 
 ```vue
 <script setup lang="ts">
-import { FormBuilder } from '@veltools/form'
+import { VelForm } from '@veltools/form'
 import { ref } from 'vue'
 
 const formRef = ref()
@@ -66,7 +66,7 @@ function getFormInstance() {
 </script>
 
 <template>
-  <FormBuilder ref="formRef" :form-items="[]" />
+  <VelForm ref="formRef" :form-items="[]" />
   <el-button @click="handleSubmit">
     提交
   </el-button>
