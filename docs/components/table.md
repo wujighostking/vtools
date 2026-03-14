@@ -1,30 +1,31 @@
+<script setup>
+import BasicDemo from '../examples/table/basic.vue'
+import CustomColumnDemo from '../examples/table/custom-column.vue'
+</script>
+
 # VTable 表格
 
 基于 Element Plus `el-table` 封装的表格组件，支持配置化列定义和内置分页。
 
 ## 基础用法
 
-```vue
-<script setup lang="ts">
-import type { ColumnConfig } from '@vtools/table'
-import { VTable } from '@vtools/table'
+通过 `columns` 配置列，`data` 传入数据，默认带分页。
 
-const columns: ColumnConfig[] = [
-  { prop: 'name', label: '姓名' },
-  { prop: 'age', label: '年龄', width: 80 },
-  { prop: 'email', label: '邮箱' },
-]
+<ClientOnly><BasicDemo /></ClientOnly>
 
-const data = [
-  { name: '张三', age: 18, email: 'zhangsan@example.com' },
-  { name: '李四', age: 25, email: 'lisi@example.com' },
-]
-</script>
+::: details 查看代码
+<<< ../examples/table/basic.vue
+:::
 
-<template>
-  <VTable :columns="columns" :data="data" />
-</template>
-```
+## 自定义列插槽
+
+每列可通过以 `prop` 命名的插槽自定义渲染内容，插槽参数为 `scope`（同 Element Plus 的作用域插槽）。
+
+<ClientOnly><CustomColumnDemo /></ClientOnly>
+
+::: details 查看代码
+<<< ../examples/table/custom-column.vue
+:::
 
 ## 隐藏分页
 
@@ -33,76 +34,6 @@ const data = [
 ```vue
 <template>
   <VTable :columns="columns" :data="data" :has-pagination="false" />
-</template>
-```
-
-## 分页事件
-
-组件会触发 `sizeChange` 和 `currentChange` 事件，参数为 `PageQuery` 对象，可用于请求后端数据。
-
-```vue
-<script setup lang="ts">
-import type { ColumnConfig, PageQuery } from '@vtools/table'
-import { VTable } from '@vtools/table'
-
-const columns: ColumnConfig[] = [
-  { prop: 'name', label: '姓名' },
-  { prop: 'status', label: '状态' },
-]
-
-function handleSizeChange(query: PageQuery) {
-  console.log('每页条数变更:', query.size)
-  // 重新请求数据
-}
-
-function handleCurrentChange(query: PageQuery) {
-  console.log('当前页变更:', query.current)
-  // 重新请求数据
-}
-</script>
-
-<template>
-  <VTable
-    :columns="columns"
-    :data="[]"
-    @size-change="handleSizeChange"
-    @current-change="handleCurrentChange"
-  />
-</template>
-```
-
-## 自定义列插槽
-
-每列可通过以 `prop` 命名的插槽自定义渲染内容，插槽参数为 `scope`（同 Element Plus 的作用域插槽）。
-
-```vue
-<script setup lang="ts">
-import type { ColumnConfig } from '@vtools/table'
-import { VTable } from '@vtools/table'
-
-const columns: ColumnConfig[] = [
-  { prop: 'name', label: '姓名' },
-  { prop: 'status', label: '状态' },
-  { prop: 'action', label: '操作', width: 200 },
-]
-</script>
-
-<template>
-  <VTable :columns="columns" :data="[]">
-    <template #status="{ row }">
-      <el-tag :type="row.status === 'active' ? 'success' : 'danger'">
-        {{ row.status === 'active' ? '启用' : '禁用' }}
-      </el-tag>
-    </template>
-    <template #action="{ row }">
-      <el-button size="small" @click="handleEdit(row)">
-        编辑
-      </el-button>
-      <el-button size="small" type="danger" @click="handleDelete(row)">
-        删除
-      </el-button>
-    </template>
-  </VTable>
 </template>
 ```
 

@@ -1,123 +1,42 @@
+<script setup>
+import BasicDemo from '../examples/form/basic.vue'
+import SlotsConfigDemo from '../examples/form/slots-config.vue'
+import SlotsTemplateDemo from '../examples/form/slots-template.vue'
+</script>
+
 # FormBuilder 表单构建器
 
 基于 Element Plus `el-form` 封装的动态表单组件，通过配置化方式快速生成表单。
 
 ## 基础用法
 
-```vue
-<script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import { FormBuilder } from '@vtools/form'
-import { ref } from 'vue'
+通过 `formItems` 配置表单项，`form` 传入响应式数据对象，`rowProps` 控制栅格布局。
 
-const formItems: FormItemConfig[] = [
-  { model: 'name', label: '姓名' },
-  { model: 'email', label: '邮箱' },
-]
+<ClientOnly><BasicDemo /></ClientOnly>
 
-const formRef = ref()
-</script>
+::: details 查看代码
+<<< ../examples/form/basic.vue
+:::
 
-<template>
-  <FormBuilder ref="formRef" :form-items="formItems" />
-</template>
-```
+## 配置插槽
 
-## 自定义表单数据
+通过 `FormItemConfig.slots` 向组件内部传递渲染函数插槽，如给 `el-select` 传入选项、给 `el-input` 添加前缀等。
 
-通过 `form` 属性传入外部表单数据对象，实现受控模式。如不传入，组件内部会自动维护一个空对象。
+<ClientOnly><SlotsConfigDemo /></ClientOnly>
 
-```vue
-<script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import { FormBuilder } from '@vtools/form'
-import { reactive } from 'vue'
+::: details 查看代码
+<<< ../examples/form/slots-config.vue
+:::
 
-const form = reactive({
-  name: '张三',
-  age: 18,
-})
+## 模板插槽
 
-const formItems: FormItemConfig[] = [
-  { model: 'name', label: '姓名' },
-  { model: 'age', label: '年龄' },
-]
-</script>
+每个表单项可通过以 `model` 名称命名的插槽完全自定义渲染。
 
-<template>
-  <FormBuilder :form-items="formItems" :form="form" />
-</template>
-```
+<ClientOnly><SlotsTemplateDemo /></ClientOnly>
 
-## 自定义组件类型
-
-`type` 属性支持传入字符串（对应 Element Plus 内置组件名）或自定义 Vue 组件。
-
-```vue
-<script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import { FormBuilder } from '@vtools/form'
-import CustomInput from './CustomInput.vue'
-
-const formItems: FormItemConfig[] = [
-  { model: 'name', label: '姓名', type: 'el-input' },
-  { model: 'gender', label: '性别', type: 'el-select' },
-  { model: 'custom', label: '自定义', type: CustomInput },
-]
-</script>
-
-<template>
-  <FormBuilder :form-items="formItems" />
-</template>
-```
-
-## 栅格布局
-
-通过 `col` 属性控制每个表单项的栅格列配置，`rowProps` 属性传递给 `el-row`。
-
-```vue
-<script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import { FormBuilder } from '@vtools/form'
-
-const formItems: FormItemConfig[] = [
-  { model: 'name', label: '姓名', col: { span: 12 } },
-  { model: 'email', label: '邮箱', col: { span: 12 } },
-  { model: 'address', label: '地址', col: { span: 24 } },
-]
-</script>
-
-<template>
-  <FormBuilder :form-items="formItems" :row-props="{ gutter: 20 }" />
-</template>
-```
-
-## 自定义插槽
-
-每个表单项可通过以 `model` 名称命名的插槽进行自定义渲染。
-
-```vue
-<script setup lang="ts">
-import type { FormItemConfig } from '@vtools/form'
-import { FormBuilder } from '@vtools/form'
-
-const formItems: FormItemConfig[] = [
-  { model: 'name', label: '姓名' },
-  { model: 'action', label: '操作' },
-]
-</script>
-
-<template>
-  <FormBuilder :form-items="formItems">
-    <template #action>
-      <el-button type="primary">
-        提交
-      </el-button>
-      <el-button>重置</el-button>
-    </template>
-  </FormBuilder>
-</template>
-```
+::: details 查看代码
+<<< ../examples/form/slots-template.vue
+:::
 
 ## 调用表单方法
 
