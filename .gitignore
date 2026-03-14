@@ -20,6 +20,7 @@ cypress/screenshots/*
 cypress/videos/*
 tmp
 docs/.vitepress/cache
+docs/.vitepress/dist
 .nuxt
 .output
 typings/auto-imports.d.ts

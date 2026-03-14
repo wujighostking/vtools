@@ -6,6 +6,11 @@
       "outputs": ["dist/**"],
       "cache": true
     },
+    "docs#build": {
+      "inputs": ["**/*.md", ".vitepress/**"],
+      "outputs": [".vitepress/dist/**"],
+      "cache": true
+    },
     "dev": {
       "persistent": true,
       "cache": false

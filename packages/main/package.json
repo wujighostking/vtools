@@ -1,0 +1,38 @@
+{
+  "name": "vtools",
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.23.0",
+  "description": "Vue 组件工具库",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown --minify",
+    "dev": "tsdown --sourcemap --watch=src"
+  },
+  "peerDependencies": {
+    "element-plus": ">=2.0.0",
+    "vue": ">=3.0.0"
+  },
+  "dependencies": {
+    "@vtools/form": "workspace:*",
+    "@vtools/table": "workspace:*"
+  },
+  "devDependencies": {
+    "element-plus": "^2.13.5",
+    "vue": "^3.5.30"
+  }
+}
