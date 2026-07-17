@@ -6,6 +6,7 @@ export default defineConfig(
     pnpm: true,
     vue: true,
     typescript: true,
+    ignores: ['docs'],
   },
   {
     rules: {
