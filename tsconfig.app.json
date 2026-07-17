@@ -22,8 +22,7 @@
     "verbatimModuleSyntax": true,
     "erasableSyntaxOnly": true,
     "skipLibCheck": true,
-    "noUncheckedSideEffectImports": true,
-    "allowImportingTsExtension": true
+    "noUncheckedSideEffectImports": true
   },
   "include": ["env.d.ts", "**/src"]
 }
