@@ -1,7 +1,8 @@
 {
-  "extends": "../tsconfig.app.json",
+  "extends": "../tsconfig.node.json",
   "compilerOptions": {
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "moduleResolution": "nodenext"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "vite.config.ts"]
 }
