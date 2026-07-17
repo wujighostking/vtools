@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FormInstance, RowProps } from 'element-plus'
 import type { Component, VNode } from 'vue'
-import { ref, useTemplateRef } from 'vue'
+import { ref, shallowRef } from 'vue'
 
 export interface FormItemConfig {
   model: string
@@ -21,7 +21,7 @@ const props = defineProps<{
 
 const form = ref<Record<string, unknown>>({})
 
-const formRef = useTemplateRef<FormInstance>('formInstance')
+const formRef = shallowRef<FormInstance>()
 
 defineExpose({
   validate: (...args: unknown[]) => formRef.value?.validate?.(...(args as [])),
@@ -31,7 +31,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-form ref="formInstance" :model="props.form ?? form" class="addr-form" v-bind="$attrs">
+  <el-form ref="formRef" :model="props.form ?? form" class="addr-form" v-bind="$attrs">
     <el-row v-bind="props.rowProps">
       <template v-for="item in props.formItems" :key="item.model">
         <el-col v-bind="item.col">
